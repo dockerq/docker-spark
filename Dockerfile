@@ -6,7 +6,7 @@ RUN echo "deb http://repos.mesosphere.io/ubuntu/ trusty main" > /etc/apt/sources
     apt-get -y update && \
     apt-get -y install mesos=0.26.0-0.2.145.ubuntu1404 openjdk-7-jre
 
-RUN apt-get install -y vim && \
+RUN apt-get install -y vim curl && \
     ln -f -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     apt-get clean
 
