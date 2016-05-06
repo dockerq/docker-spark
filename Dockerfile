@@ -6,7 +6,8 @@ RUN echo "deb http://repos.mesosphere.io/ubuntu/ trusty main" > /etc/apt/sources
     apt-get -y update && \
     apt-get -y install mesos=0.26.0-0.2.145.ubuntu1404
 
-RUN apt-get install -y vim
-
-RUN ln -f -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
+RUN apt-get install -y vim && \
+    ln -f -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     apt-get clean
+
+ENV MESOS_NATIVE_JAVA_LIBRARY=/usr/lib/libmesos.so
