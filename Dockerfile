@@ -12,4 +12,5 @@ RUN apt-get install -y vim && \
 
 ENV MESOS_NATIVE_JAVA_LIBRARY=/usr/lib/libmesos.so \
     JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+
 ENV PATH=$JAVA_HOME/bin:$PATH
