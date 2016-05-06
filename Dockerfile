@@ -11,7 +11,7 @@ RUN apt-get install -y vim curl && \
     apt-get clean
 
 #download spark
-RUN curl http://ftp.mirror.tw/pub/apache/spark/spark-1.6.1/spark-1.6.1-bin-hadoop2.6.tgz | tar - C /usr/local
+RUN curl http://ftp.mirror.tw/pub/apache/spark/spark-1.6.1/spark-1.6.1-bin-hadoop2.6.tgz | tar xzf - C /usr/local
 
 ENV MESOS_NATIVE_JAVA_LIBRARY=/usr/lib/libmesos.so \
     JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64 \
