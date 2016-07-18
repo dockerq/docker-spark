@@ -7,7 +7,7 @@ RUN ln -f -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN apt-get update && \
     apt-get -y install openjdk-7-jre python-pip vim curl supervisor
 
-RUN curl -fL http://archive.apache.org/dist/spark/spark-1.6.0/spark-1.6.0-bin-hadoop2.6.tgz |\ 	   tar xzf - -C /usr/local && \
+RUN curl -fL http://archive.apache.org/dist/spark/spark-1.6.0/spark-1.6.0-bin-hadoop2.6.tgz |tar xzf - -C /usr/local && \
     apt-get clean
 
 # download dependencies
