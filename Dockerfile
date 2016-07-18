@@ -16,6 +16,12 @@ ADD supervisord.conf /etc/supervisord.conf
 RUN pip install -r /tmp/requirements.txt && \
 	rm /tmp/requirements.txt
 
+RUN echo "deb http://repos.mesosphere.io/ubuntu/ trusty main" > /etc/apt/sources.list.d/mesosphere.list && \
+    apt-key adv --keyserver keyserver.ubuntu.com --recv E56151BF && \
+    apt-get -y update && \
+    apt-get -y install mesos=0.28.1-2.0.20.ubuntu1404 && \
+    apt-get clean
+
 ENV MESOS_NATIVE_JAVA_LIBRARY=/usr/lib/libmesos.so \
     JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64 \
     SPARK_HOME=/usr/local/spark-1.6.0-bin-hadoop2.6
