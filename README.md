@@ -1,2 +1,2 @@
 #Init
-Note, this image is built just for mesos to run spark app in docker container.
+This image is built as Spark Driver to run on Mesos to scheduler spark app in Mesos Cluster
