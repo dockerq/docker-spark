@@ -13,7 +13,7 @@ RUN curl -fL http://archive.apache.org/dist/spark/spark-1.6.0/spark-1.6.0-bin-ha
 # download dependencies
 ADD requirements.txt /tmp/requirements.txt
 ADD supervisord.conf /etc/supervisord.conf
-RUN pip install -r /linker/requirements.txt && \
+RUN pip install -r /tmp/requirements.txt && \
 	rm /tmp/requirements.txt
 
 ENV MESOS_NATIVE_JAVA_LIBRARY=/usr/lib/libmesos.so \
