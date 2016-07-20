@@ -16,13 +16,13 @@ RUN curl -fL http://archive.apache.org/dist/spark/spark-1.6.0/spark-1.6.0-bin-ha
 ENV MESOS_NATIVE_JAVA_LIBRARY=/usr/lib/libmesos.so \
     JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64 \
     SPARK_HOME=/usr/local/spark-1.6.0-bin-hadoop2.6 \
-    NB_USER jovyan \
-    NB_UID 1000
+    NB_USER=jovyan \
+    NB_UID=1000
 ENV PATH=$JAVA_HOME/bin:$PATH \
-    HOME /home/$NB_USER \
-    LC_ALL en_US.UTF-8 \
-    LANG en_US.UTF-8 \
-    LANGUAGE en_US.UTF-8
+    HOME=/home/$NB_USER \
+    LC_ALL=en_US.UTF-8 \
+    LANG=en_US.UTF-8 \
+    LANGUAGE=en_US.UTF-8
 RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER
 WORKDIR $SPARK_HOME
 USER $NB_USER
