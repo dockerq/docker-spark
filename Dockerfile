@@ -8,8 +8,7 @@ RUN echo "deb http://repos.mesosphere.io/ubuntu/ trusty main" > /etc/apt/sources
     apt-get -y update && \
     apt-get -y install mesos=0.28.1-2.0.20.ubuntu1404
 #download java
-RUN apt-get update && \
-    apt-get -y install openjdk-7-jre curl && \
+RUN apt-get -y install openjdk-7-jre curl
 RUN curl -fL http://archive.apache.org/dist/spark/spark-1.6.0/spark-1.6.0-bin-hadoop2.6.tgz | tar xzf - -C /usr/local && \
     apt-get clean
 
