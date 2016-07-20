@@ -24,4 +24,3 @@ ENV PATH=$JAVA_HOME/bin:$PATH \
     LANGUAGE=en_US.UTF-8
 RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER
 WORKDIR $SPARK_HOME
-USER $NB_USER
