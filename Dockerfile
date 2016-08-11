@@ -26,5 +26,5 @@ VOLUME /linker
 # install netdata
 RUN apt-get install -yqq zlib1g-dev uuid-dev libmnl-dev gcc make git autoconf autoconf-archive autogen automake pkg-config && \
     git clone https://github.com/firehol/netdata.git --depth=1 && \
-    cd netdata && echo "\n" | ./netdata-installer.sh
+    cd netdata && ./netdata-installer.sh --dont-wait --dont-start-it
 EXPOSE 19999
