@@ -1,2 +1,2 @@
-#Init
-Note, this image is just for mesos to run spark app in docker container.
+# Data sender to spark
+This image is build to send test data to spark cluster which aims to test Spark performance.
