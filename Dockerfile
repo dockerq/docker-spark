@@ -5,12 +5,15 @@ FROM ubuntu:14.04
 RUN ln -f -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 #download mesos
 RUN apt-get update && \
-    apt-get -y install openjdk-7-jre curl git
+    apt-get -y install openjdk-7-jre curl git python-pip
 
 RUN curl -fL http://archive.apache.org/dist/spark/spark-1.6.0/spark-1.6.0-bin-hadoop2.6.tgz |tar xzf - -C /usr/local
 
 # download dependencies
-ADD supervisord.conf /etc/supervisord.conf
+ADD requirements.txt /requirements.txt
+ADD perf-spark.py /perf-spark.py
+RUN pip install -r /requirements.txt
+
 # download mesos
 RUN echo "deb http://repos.mesosphere.io/ubuntu/ trusty main" > /etc/apt/sources.list.d/mesosphere.list && \
     apt-key adv --keyserver keyserver.ubuntu.com --recv E56151BF && \
@@ -22,7 +25,6 @@ ENV MESOS_NATIVE_JAVA_LIBRARY=/usr/lib/libmesos.so \
     SPARK_HOME=/usr/local/spark-1.6.0-bin-hadoop2.6
 ENV PATH=$JAVA_HOME/bin:$PATH
 WORKDIR $SPARK_HOME
-VOLUME /linker
 # install netdata
 RUN apt-get install -yqq zlib1g-dev uuid-dev libmnl-dev gcc make git autoconf autoconf-archive autogen automake pkg-config && \
     git clone https://github.com/firehol/netdata.git --depth=1 && \
