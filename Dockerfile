@@ -12,7 +12,8 @@ RUN curl -fL http://archive.apache.org/dist/spark/spark-1.6.0/spark-1.6.0-bin-ha
 # download dependencies
 ADD requirements.txt /requirements.txt
 ADD perf-spark.py /perf-spark.py
-RUN pip install -r /requirements.txt
+RUN pip install -r /requirements.txt && \
+    chmod +x /perf-spark.py
 
 # download mesos
 RUN echo "deb http://repos.mesosphere.io/ubuntu/ trusty main" > /etc/apt/sources.list.d/mesosphere.list && \
