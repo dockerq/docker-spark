@@ -17,6 +17,7 @@ sudo docker run -it --name spark-try --net host adolphlwq/docker-spark bash
 Refer **[Spark on Mesos](http://spark.apache.org/docs/latest/running-on-mesos.html#mesos-docker-support)** And **[Spark configuration](http://spark.apache.org/docs/latest/running-on-mesos.html#configuration)** for more details.
 
 - Instance SparkConf
+
   ```python
   conf = SparkConf()
   conf.setMaster(mesos_endpoint)
@@ -24,6 +25,7 @@ Refer **[Spark on Mesos](http://spark.apache.org/docs/latest/running-on-mesos.ht
   conf.set("spark.mesos.executor.home", "/usr/local/spark-1.6.0-bin-hadoop2.6")
   ```
 - Instance SparkContext
+
   ```python
   sc = SparkContext(conf=conf)
   below is your code
