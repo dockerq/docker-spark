@@ -9,9 +9,10 @@
 ## Usage
 - SPARK_HOME :`/usr/local/spark-1.6.0-bin-hadoop2.6`
 - Try on docker image
-```
-sudo docker run -it --name spark-try --net host adolphlwq/docker-spark bash
-```
+
+  ```
+  sudo docker run -it --name spark-try --net host adolphlwq/docker-spark bash
+  ```
 
 ### Use it on Mesos Cluster as Mesos Spark executor
 Refer **[Spark on Mesos](http://spark.apache.org/docs/latest/running-on-mesos.html#mesos-docker-support)** And **[Spark configuration](http://spark.apache.org/docs/latest/running-on-mesos.html#configuration)** for more details.
